@@ -1,0 +1,61 @@
+{
+    "Ceiling Fans": {
+        "Bladeless Fans": [
+            {
+                "Model": "BLADLESS FAN WITH AIR PURIFIER",
+                "Code": "FF1001",
+                "Color/Finish": "WT 01 White",
+                "Size (mm)": "1200",
+                "Price (₹)": 16961,
+                "PKG": 1,
+                "Series": "GLIDE"
+            }
+        ],
+        "BLDC Super Premium Ceiling Fans": [
+            {
+                "Model": "F WAVE",
+                "Code": "FF1101",
+                "Color/Finish": "AW/SW/MB/48 American Walnut/Satin White/Matt Black",
+                "Size (mm)": "1200",
+                "Price (₹)": 8291,
+                "PKG": 1
+            },
+            {
+                "Model": "GREZIA",
+                "Code": "FF1108",
+                "Color/Finish": "GW/GB52 Glacier White/Graphite Black",
+                "Size (mm)": "1320",
+                "Price (₹)": 8034,
+                "PKG": 1
+            },
+            {
+                "Model": "BRISA",
+                "Code": "FF1109",
+                "Color/Finish": "CG/EW48 Charcoal Grey/Everest White",
+                "Size (mm)": "1200",
+                "Price (₹)": 9919,
+                "PKG": 1
+            }
+        ]
+    },
+    "Table & Wall Fans": {
+        "Table Fans": [
+            {
+                "Model": "VAYU TABLE FAN",
+                "Code": "FF5101",
+                "Color/Finish": "BO/FB/16 Black Orange/Fluorescent Blue",
+                "Size (mm)": "400",
+                "Price (₹)": 2007,
+                "PKG": 2
+            },
+            {
+                "Model": "GUSH TABLE FAN",
+                "Code": "FF5102",
+                "Color/Finish": "BG/WG/16 Black Grey/White Grey",
+                "Size (mm)": "400",
+                "Price (₹)": 2283,
+                "PKG": 2
+            }
+        ]
+    }
+}
