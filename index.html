@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fan Catalog</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { width: 80%; margin: auto; }
+        .buttons { margin-bottom: 20px; }
+        button { margin: 5px; padding: 10px; cursor: pointer; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f4f4f4; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fan Catalog</h1>
+        <div class="buttons">
+            <button onclick="filterFans('Ceiling Fans')">Ceiling Fans</button>
+            <button onclick="filterFans('BLDC Ceiling Fans')">Ceiling Fans - BLDC</button>
+            <button onclick="filterFans('Pedestal Fans')">Pedestal Fans</button>
+            <button onclick="filterFans('Wall Fans')">Wall Fans</button>
+            <button onclick="filterFans('Table Fans')">Table Fans</button>
+            <button onclick="filterFans('Ventilation Fans')">Ventilation Fans</button>
+            <button onclick="filterFans('')">Show All</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Model</th>
+                    <th onclick="sortTable(1)">Code</th>
+                    <th onclick="sortTable(2)">Color/Finish</th>
+                    <th onclick="sortTable(3)">Size (mm)</th>
+                    <th onclick="sortTable(4)">Price (₹)</th>
+                </tr>
+            </thead>
+            <tbody id="fanTableBody"></tbody>
+        </table>
+    </div>
+
+    <script>
+        let fanData = [];
+        
+        fetch('Fan_Catalog.json')
+            .then(response => response.json())
+            .then(data => {
+                fanData = Object.values(data).flatMap(category => Object.values(category).flat());
+                displayFans(fanData);
+            })
+            .catch(error => console.error('Error loading JSON:', error));
+
+        function displayFans(fans) {
+            const tableBody = document.getElementById('fanTableBody');
+            tableBody.innerHTML = '';
+            fans.forEach(fan => {
+                let row = `<tr>
+                    <td>${fan.Model}</td>
+                    <td>${fan.Code}</td>
+                    <td>${fan["Color/Finish"]}</td>
+                    <td>${fan["Size (mm)"]}</td>
+                    <td>${fan["Price (₹)"]}</td>
+                </tr>`;
+                tableBody.innerHTML += row;
+            });
+        }
+        
+        function filterFans(category) {
+            const filteredFans = category ? fanData.filter(fan => fan.Category === category) : fanData;
+            displayFans(filteredFans);
+        }
+        
+        function sortTable(n) {
+            let table = document.querySelector("table");
+            let rows = Array.from(table.rows).slice(1);
+            let sortedRows = rows.sort((a, b) => a.cells[n].innerText.localeCompare(b.cells[n].innerText, undefined, { numeric: true }));
+            table.tBodies[0].append(...sortedRows);
+        }
+    </script>
+</body>
+</html>
