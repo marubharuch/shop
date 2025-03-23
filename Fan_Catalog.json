@@ -1,61 +1,247 @@
 {
-    "Ceiling Fans": {
-        "Bladeless Fans": [
-            {
-                "Model": "BLADLESS FAN WITH AIR PURIFIER",
-                "Code": "FF1001",
-                "Color/Finish": "WT 01 White",
-                "Size (mm)": "1200",
-                "Price (₹)": 16961,
-                "PKG": 1,
-                "Series": "GLIDE"
-            }
-        ],
-        "BLDC Super Premium Ceiling Fans": [
-            {
-                "Model": "F WAVE",
-                "Code": "FF1101",
-                "Color/Finish": "AW/SW/MB/48 American Walnut/Satin White/Matt Black",
-                "Size (mm)": "1200",
-                "Price (₹)": 8291,
-                "PKG": 1
-            },
-            {
-                "Model": "GREZIA",
-                "Code": "FF1108",
-                "Color/Finish": "GW/GB52 Glacier White/Graphite Black",
-                "Size (mm)": "1320",
-                "Price (₹)": 8034,
-                "PKG": 1
-            },
-            {
-                "Model": "BRISA",
-                "Code": "FF1109",
-                "Color/Finish": "CG/EW48 Charcoal Grey/Everest White",
-                "Size (mm)": "1200",
-                "Price (₹)": 9919,
-                "PKG": 1
-            }
-        ]
+  "ceiling_fans": {
+    "bladeless_fans": [
+      {
+        "model": "BLADLESS FAN WITH AIR PURIFIER",
+        "code": "FF1001",
+        "color_finish": "WT 01 White",
+        "size_mm": 1200,
+        "price_inr": 16961,
+        "pkg": 1,
+        "series": "GLIDE"
+      }
+    ],
+    "bldc_super_premium_ceiling_fans": [
+      {
+        "model": "F WAVE",
+        "code": "FF1101",
+        "color_finish": "AW/SW/MB/48 American Walnut/Satin White/Matt Black",
+        "size_mm": 1200,
+        "price_inr": 8291,
+        "pkg": 1
+      },
+      {
+        "model": "GREZIA",
+        "code": "FF1108",
+        "color_finish": "GW/GB52 Glacier White/Graphite Black",
+        "size_mm": 1320,
+        "price_inr": 8034,
+        "pkg": 1
+      },
+      {
+        "model": "BRISA",
+        "code": "FF1109",
+        "color_finish": "CG/EW48 Charcoal Grey/Everest White",
+        "size_mm": 1200,
+        "price_inr": 9919,
+        "pkg": 1
+      },
+      {
+        "model": "ELLA",
+        "code": "FF1102",
+        "color_finish": "AW48 American Walnut",
+        "size_mm": 1200,
+        "price_inr": 12792,
+        "pkg": 1
+      },
+      {
+        "model": "ELLA",
+        "code": "FF1102",
+        "color_finish": "SW48 Satin White",
+        "size_mm": 1200,
+        "price_inr": 9907,
+        "pkg": 1
+      },
+      {
+        "model": "SILENT WAVE",
+        "code": "FF1110",
+        "color_finish": "SW/CB/48 Sparkle White / Caramel Brown",
+        "size_mm": 1200,
+        "price_inr": 5150,
+        "pkg": 1
+      },
+      {
+        "model": "SILENT WAVE",
+        "code": "FF1110",
+        "color_finish": "WW48 Walnut Wood",
+        "size_mm": 1200,
+        "price_inr": 6108,
+        "pkg": 1
+      },
+      {
+        "model": "URUS",
+        "code": "FF1103",
+        "color_finish": "AC/AB/AS/48 Antique Copper Rosewood/Antique Brass/Dark Wood/Antique Silver Dark Wood",
+        "size_mm": 1200,
+        "price_inr": 9618,
+        "pkg": 1
+      }
+    ],
+    "super_premium_ceiling_fans": [
+      {
+        "model": "ARIES PRO",
+        "code": "FF1104",
+        "color_finish": "OB 48 Oakwood Black",
+        "size_mm": 1200,
+        "price_inr": 3904,
+        "pkg": 2
+      },
+      {
+        "model": "ARIES PRO",
+        "code": "FF1104",
+        "color_finish": "WB 48 Pearl White Black",
+        "size_mm": 1200,
+        "price_inr": 3595,
+        "pkg": 2
+      },
+      {
+        "model": "ARIES",
+        "code": "FF1105",
+        "color_finish": "BK 48 Matt Black",
+        "size_mm": 1200,
+        "price_inr": 3389,
+        "pkg": 2
+      },
+      {
+        "model": "ARIES",
+        "code": "FF1105",
+        "color_finish": "MB 48 Matt Brown",
+        "size_mm": 1200,
+        "price_inr": 3286,
+        "pkg": 2
+      },
+      {
+        "model": "LOFT",
+        "code": "FF1106",
+        "color_finish": "AC/AS/32 Antique Copper Rosewood/Antique Silver Dark Wood",
+        "size_mm": 800,
+        "price_inr": 6353,
+        "pkg": 1
+      },
+      {
+        "model": "STELLA",
+        "code": "FF1107",
+        "color_finish": "AC/AS/24 Antique Copper Rosewood/Antique Silver Dark Wood",
+        "size_mm": 600,
+        "price_inr": 3618,
+        "pkg": 4
+      }
+    ],
+    "premium_ceiling_fans": [
+      {
+        "model": "CASA",
+        "code": "FF2101",
+        "color_finish": "BB/AW/MB/DG/48 Baker Brown/Angel White/Midnight Grey/Dove Grey",
+        "size_mm": 1200,
+        "price_inr": 3270,
+        "pkg": 2
+      },
+      {
+        "model": "CASA BLDC",
+        "code": "FF2102",
+        "color_finish": "BB/AW/MB/DG/48 Baker Brown/Angel White/Midnight Grey/Dove Grey",
+        "size_mm": 1200,
+        "price_inr": 4645,
+        "pkg": 2
+      },
+      {
+        "model": "CASA PLUS",
+        "code": "FF2107",
+        "color_finish": "TG/AW/DG36 Topaz Gold/Angel White/Dove Grey",
+        "size_mm": 900,
+        "price_inr": 3215,
+        "pkg": 2
+      },
+      {
+        "model": "CASA PLUS",
+        "code": "FF2107",
+        "color_finish": "TG/AW/DG48 Topaz Gold/Angel White/Dove Grey",
+        "size_mm": 1200,
+        "price_inr": 3311,
+        "pkg": 2
+      }
+    ]
+  },
+  "table_wall_fans": {
+    "table_fans": [
+      {
+        "model": "VAYU TABLE FAN",
+        "code": "FF5101",
+        "color_finish": "BO/FB/16 Black Orange/Fluorescent Blue",
+        "size_mm": 400,
+        "price_inr": 2007,
+        "pkg": 2
+      },
+      {
+        "model": "GUSH TABLE FAN",
+        "code": "FF5102",
+        "color_finish": "BG/WG/16 Black Grey/White Grey",
+        "size_mm": 400,
+        "price_inr": 2283,
+        "pkg": 2
+      }
+    ],
+    "wall_fans": [
+      {
+        "model": "VAYU WALL FAN",
+        "code": "FF5201",
+        "color_finish": "BO/FB/16 Black Orange/Fluorescent Blue",
+        "size_mm": 400,
+        "price_inr": 2175,
+        "pkg": 2
+      },
+      {
+        "model": "GUSH WALL FAN",
+        "code": "FF5202",
+        "color_finish": "BG/WG-12 Black Grey/White Grey",
+        "size_mm": 300,
+        "price_inr": 2153,
+        "pkg": 2
+      },
+      {
+        "model": "GUSH WALL FAN",
+        "code": "FF5202",
+        "color_finish": "BG/WG-16 Black Grey/White Grey",
+        "size_mm": 400,
+        "price_inr": 2446,
+        "pkg": 2
+      },
+      {
+        "model": "MAGNUM METAL WALL FAN",
+        "code": "FF5203",
+        "color_finish": "BK 18 Black",
+        "size_mm": 450,
+        "price_inr": 3479,
+        "pkg": 1
+      }
+    ]
+  },
+  "pedestal_fans": [
+    {
+      "model": "VAYU PEDESTAL FAN",
+      "code": "FF5301",
+      "color_finish": "BO/FB/16 Black Orange/Fluorescent Blue",
+      "size_mm": 400,
+      "price_inr": 2501,
+      "pkg": 2
     },
-    "Table & Wall Fans": {
-        "Table Fans": [
-            {
-                "Model": "VAYU TABLE FAN",
-                "Code": "FF5101",
-                "Color/Finish": "BO/FB/16 Black Orange/Fluorescent Blue",
-                "Size (mm)": "400",
-                "Price (₹)": 2007,
-                "PKG": 2
-            },
-            {
-                "Model": "GUSH TABLE FAN",
-                "Code": "FF5102",
-                "Color/Finish": "BG/WG/16 Black Grey/White Grey",
-                "Size (mm)": "400",
-                "Price (₹)": 2283,
-                "PKG": 2
-            }
-        ]
+    {
+      "model": "GUSH PEDESTAL FAN",
+      "code": "FF5302",
+      "color_finish": "BG/WG/16 Black Grey/White Grey",
+      "size_mm": 400,
+      "price_inr": 2936,
+      "pkg": 2
     }
+  ],
+  "ventilation_exhaust_fans": [
+    {
+      "model": "ZEST AXIAL FAN",
+      "code": "FF6101",
+      "color_finish": "WT/BK/06 White/Black",
+      "size_mm": 150,
+      "price_inr": 1229,
+      "pkg": 8
+    }
+  ]
 }
