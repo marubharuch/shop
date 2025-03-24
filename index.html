@@ -5,27 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fan Catalog</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        .container { width: 80%; margin: auto; }
-        .buttons { margin-bottom: 20px; }
-        button { margin: 5px; padding: 10px; cursor: pointer; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #f4f4f4; cursor: pointer; }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f9f9f9; }
+        .container { width: 90%; max-width: 1200px; margin: auto; padding: 20px; background: white; box-shadow: 0px 4px 10px rgba(0,0,0,0.1); border-radius: 10px; }
+        .buttons { display: flex; flex-wrap: wrap; justify-content: center; margin-bottom: 20px; }
+        button { margin: 5px; padding: 10px 15px; font-size: 14px; border: none; background-color: #007bff; color: white; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; font-size: 14px; }
+        th { background-color: #007bff; color: white; cursor: pointer; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Fan Catalog</h1>
-        <div class="buttons">
-            <button onclick="filterFans('Ceiling Fans')">Ceiling Fans</button>
-            <button onclick="filterFans('BLDC Ceiling Fans')">Ceiling Fans - BLDC</button>
-            <button onclick="filterFans('Pedestal Fans')">Pedestal Fans</button>
-            <button onclick="filterFans('Wall Fans')">Wall Fans</button>
-            <button onclick="filterFans('Table Fans')">Table Fans</button>
-            <button onclick="filterFans('Ventilation Fans')">Ventilation Fans</button>
-            <button onclick="filterFans('')">Show All</button>
-        </div>
+        <h1 style="text-align: center;">Fan Catalog</h1>
+        <div class="buttons" id="categoryButtons"></div>
         <table>
             <thead>
                 <tr>
@@ -41,36 +35,50 @@
     </div>
 
     <script>
-        let fanData = [];
-        
-        fetch('Fan_Catalog.json')
+        let fanData = {};
+
+        fetch('iLoveMerge.json')
             .then(response => response.json())
             .then(data => {
-                fanData = Object.values(data).flatMap(category => Object.values(category).flat());
-                displayFans(fanData);
+                fanData = data;
+                createCategoryButtons(Object.keys(fanData));
+                displayFans(Object.values(fanData).flat());
             })
             .catch(error => console.error('Error loading JSON:', error));
+
+        function createCategoryButtons(categories) {
+            const container = document.getElementById('categoryButtons');
+            categories.forEach(category => {
+                let button = document.createElement('button');
+                button.innerText = category;
+                button.onclick = () => filterFans(category);
+                container.appendChild(button);
+            });
+            let showAllButton = document.createElement('button');
+            showAllButton.innerText = 'Show All';
+            showAllButton.onclick = () => displayFans(Object.values(fanData).flat());
+            container.appendChild(showAllButton);
+        }
 
         function displayFans(fans) {
             const tableBody = document.getElementById('fanTableBody');
             tableBody.innerHTML = '';
             fans.forEach(fan => {
                 let row = `<tr>
-                    <td>${fan.Model}</td>
-                    <td>${fan.Code}</td>
-                    <td>${fan["Color/Finish"]}</td>
-                    <td>${fan["Size (mm)"]}</td>
-                    <td>${fan["Price (₹)"]}</td>
+                    <td>${fan.model}</td>
+                    <td>${fan.code}</td>
+                    <td>${fan.color}</td>
+                    <td>${fan.size}</td>
+                    <td>${fan.price}</td>
                 </tr>`;
                 tableBody.innerHTML += row;
             });
         }
-        
+
         function filterFans(category) {
-            const filteredFans = category ? fanData.filter(fan => fan.Category === category) : fanData;
-            displayFans(filteredFans);
+            displayFans(fanData[category] || []);
         }
-        
+
         function sortTable(n) {
             let table = document.querySelector("table");
             let rows = Array.from(table.rows).slice(1);

@@ -1,0 +1,82 @@
+{
+  "STANDARD - CEILING FAN": [
+    { "model": "LUNA 2X2", "code": "FF5801", "color": "White", "size": "400 mm", "price": 5202 },
+    { "model": "AIR-1", "code": "FF4101", "color": "Smoke Brown / Rich Brown / Matt Brown / Ivory / White", "size": "900 mm", "price": 1494 },
+    { "model": "AIR-1", "code": "FF4101", "color": "Smoke Brown / Rich Brown / Matt Brown / Ivory / White", "size": "1200 mm", "price": 1494 },
+    { "model": "AIR-1", "code": "FF4101", "color": "Smoke Brown / Rich Brown / Matt Brown / Ivory / White", "size": "1400 mm", "price": 1848 },
+    { "model": "FALCON SS", "code": "FF4102", "color": "Smoke Brown / Rich Brown / White / Bianco", "size": "1200 mm", "price": 1494 },
+    { "model": "F-FLOW", "code": "FF4103", "color": "Smoke Brown / Matt Brown / Rich Brown / Bianco / Blue", "size": "900 mm", "price": 1494 },
+    { "model": "F-FLOW", "code": "FF4103", "color": "Smoke Brown / Matt Brown / Rich Brown / Bianco / Blue", "size": "1200 mm", "price": 1494 },
+    { "model": "VELO", "code": "FF4104", "color": "Royal Brown / Glossy Black / Rich White / Ivory", "size": "1200 mm", "price": 2893 },
+    { "model": "MENOR", "code": "FF4105", "color": "Smoke Brown / Matt Brown / Rich Brown / Bianco / White", "size": "600 mm", "price": 1441 }
+  ],
+  "TABLE FAN": [
+    { "model": "SILO", "code": "FF5901", "color": "White Grey", "size": "-----", "price": 2781 },
+    { "model": "VAYU", "code": "FF5101", "color": "Black Orange / Fluorescent Blue", "size": "400 mm", "price": 2007 },
+    { "model": "GUSH", "code": "FF5102", "color": "Black Grey / White Grey", "size": "400 mm", "price": 2283 }
+  ],
+  "WALL FAN": [
+    { "model": "GALE", "code": "FF5501", "color": "White", "size": "300 mm", "price": 1696 },
+    { "model": "VAYU", "code": "FF5201", "color": "Black Orange / Fluorescent Blue", "size": "400 mm", "price": 2175 },
+    { "model": "GUSH", "code": "FF5202", "color": "Black Grey / White Grey", "size": "300 mm", "price": 2153 },
+    { "model": "GUSH", "code": "FF5202", "color": "Black Grey / White Grey", "size": "400 mm", "price": 2446 },
+    { "model": "MAGNUM METAL", "code": "FF5203", "color": "Black", "size": "450 mm", "price": 3479 }
+  ],
+  "PEDESTAL FAN": [
+    { "model": "TRI AIR", "code": "FF5601", "color": "Black Yellow", "size": "225 mm", "price": 1430 },
+    { "model": "HANDY GUST", "code": "FF5701", "color": "White", "size": "150 mm", "price": 2718 }
+  ],
+  "AXIAL FAN": [
+    { "model": "ZEST", "code": "FF6101", "color": "White / Black", "size": "150 mm", "price": 1229 }
+  ],
+  "VENTILATION FAN": [
+    { "model": "VENTFLO", "code": "FF6201", "color": "White / Black", "size": "150 mm", "price": 1006 }
+  ],
+  "EXHAUST FAN": [
+    { "model": "EXFLO PLUS", "code": "FF6401", "color": "Dark Grey", "size": "150 mm", "price": 1201 }
+  ],
+  "SUPER PREMIUM - BLDC CEILING FAN": [
+    { "model": "F-WAVE", "code": "FF1101 AW/SW/MB/48", "color": "American Walnut/Satin White/Matt Black", "size": "1200 mm", "price": 8291 }
+  ],
+  "PREMIUM - CEILING FAN": [
+    { "model": "OLYMPIA", "code": "FF2103 CG/BS/GC/36", "color": "Chocolate Gold / Radiant Blue-Silver / Topaz Gold Chocolate / Sparkle White", "size": "900 mm", "price": 2833 },
+  
+
+  {
+    "model": "OLYMPIA",
+    "code": "FF2103 CG/BS/GC/48",
+    "color": "Chocolate Gold / Radiant Blue-Silver / Topaz Gold Chocolate / Sparkle White",
+    "size": "1200 mm",
+    "price": 2833
+  },
+  {
+    "model": "AERO",
+    "code": "FF2104 CB/SW/SB/IG/36",
+    "color": "Coffee Brown / Sparkle White / Sparkle Brown / Imperial Gold",
+    "size": "900 mm",
+    "price": 2575
+  },
+  {
+    "model": "AERO",
+    "code": "FF2104 CB/SW/SB/IG/48",
+    "color": "Coffee Brown / Sparkle White / Sparkle Brown / Imperial Gold",
+    "size": "1200 mm",
+    "price": 2575
+  },
+  {
+    "model": "SOLIS",
+    "code": "FF2106 TB/PW/MB/GG/36",
+    "color": "Tangy Brown / Pearl White / Mystic Blue / Granite Grey",
+    "size": "900 mm",
+    "price": 1938
+  },
+  {
+    "model": "SOLIS",
+    "code": "FF2106 TB/PW/MB/GG/48",
+    "color": "Tangy Brown / Pearl White / Mystic Blue / Granite Grey",
+    "size": "1200 mm",
+    "price": 1938
+  }
+
+  ]
+}
