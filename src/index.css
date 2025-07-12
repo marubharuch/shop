@@ -1,0 +1,11 @@
+/* src/index.css */
+
+@import "tailwindcss"; /* <--- THIS IS CRUCIAL FOR ALL UTILITIES, ESPECIALLY COLORS */
+
+/* Any other global CSS you have below this line */
+body {
+  margin: 0;
+  font-family: sans-serif; /* Example */
+}
+
+/* ... */
