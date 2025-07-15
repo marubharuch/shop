@@ -1,0 +1,606 @@
+
+
+
+
+[
+  {
+    "No.": "1",
+    "CODE": "W50001",
+    "Particulars": "1M AIR",
+    "PKG OUTER": "10",
+    "MASTER": "600",
+    "BASIC GREEN/ WHITE/ GREY RATE": "64.00",
+    "PLATINUM CHROME RATE": "120.00",
+    "AFRICAN WENGE/ ITALIAN WALNUT RATE": "131.00"
+  },
+  {
+    "No.": "2",
+    "CODE": "W50002",
+    "Particulars": "2M AIR",
+    "PKG OUTER": "10",
+    "MASTER": "600",
+    "BASIC GREEN/ WHITE/ GREY RATE": "64.00",
+    "PLATINUM CHROME RATE": "120.00",
+    "AFRICAN WENGE/ ITALIAN WALNUT RATE": "131.00"
+  },
+  {
+    "No.": "3",
+    "CODE": "W50003",
+    "Particulars": "3M AIR",
+    "PKG OUTER": "10",
+    "MASTER": "600",
+    "BASIC GREEN/ WHITE/ GREY RATE": "79.00",
+    "PLATINUM CHROME RATE": "160.00",
+    "AFRICAN WENGE/ ITALIAN WALNUT RATE": "176.00"
+  },
+  {
+    "No.": "4",
+    "CODE": "W50004",
+    "Particulars": "4M AIR",
+    "PKG OUTER": "10",
+    "MASTER": "450",
+    "BASIC GREEN/ WHITE/ GREY RATE": "90.25",
+    "PLATINUM CHROME RATE": "176.00",
+    "AFRICAN WENGE/ ITALIAN WALNUT RATE": "204.00"
+  },
+  {
+    "No.": "5",
+    "CODE": "W50005",
+    "Particulars": "6M AIR",
+    "PKG OUTER": "10",
+    "MASTER": "300",
+    "BASIC GREEN/ WHITE/ GREY RATE": "131.10",
+    "PLATINUM CHROME RATE": "243.00",
+    "AFRICAN WENGE/ ITALIAN WALNUT RATE": "266.00"
+  },
+  {
+    "No.": "6",
+    "CODE": "W50006",
+    "Particulars": "8M (H) AIR",
+    "PKG OUTER": "10",
+    "MASTER": "300",
+    "BASIC GREEN/ WHITE/ GREY RATE": "166.25",
+    "PLATINUM CHROME RATE": "329.00",
+    "AFRICAN WENGE/ ITALIAN WALNUT RATE": "365.00"
+  },
+  {
+    "No.": "7",
+    "CODE": "W50007",
+    "Particulars": "8M (V) AIR",
+    "PKG OUTER": "10",
+    "MASTER": "270",
+    "BASIC GREEN/ WHITE/ GREY RATE": "166.25",
+    "PLATINUM CHROME RATE": "329.00",
+    "AFRICAN WENGE/ ITALIAN WALNUT RATE": "365.00"
+  },
+  {
+    "No.": "8",
+    "CODE": "W50012",
+    "Particulars": "12M AIR",
+    "PKG OUTER": "10",
+    "MASTER": "240",
+    "BASIC GREEN/ WHITE/ GREY RATE": "203.30",
+    "PLATINUM CHROME RATE": "409.00",
+    "AFRICAN WENGE/ ITALIAN WALNUT RATE": "501.00"
+  },
+  {
+    "No.": "9",
+    "CODE": "W50010",
+    "Particulars": "16M AIR",
+    "PKG OUTER": "10",
+    "MASTER": "200",
+    "BASIC GREEN/ WHITE/ GREY RATE": "234.00",
+    "PLATINUM CHROME RATE": "468.00",
+    "AFRICAN WENGE/ ITALIAN WALNUT RATE": "534.00"
+  },
+  {
+    "No.": "10",
+    "CODE": "W50009",
+    "Particulars": "18M AIR",
+    "PKG OUTER": "10",
+    "MASTER": "160",
+    "BASIC GREEN/ WHITE/ GREY RATE": "263.00",
+    "PLATINUM CHROME RATE": "479.00",
+    "AFRICAN WENGE/ ITALIAN WALNUT RATE": "559.00"
+  }
+, 
+  {
+    "No.": "1",
+    "CODE": "W70001",
+    "Particulars": "1M ARROW",
+    "PKG OUTER": "10",
+    "MASTER": "600",
+    "BASIC WHITE RATE": "64.00",
+    "BASIC PREMIUM RATE": "73.00",
+    "MYSTIC COPPER/ MYSTIC CHROME/ MATTY\nBLACK RATE": "120.00",
+    "ITALIAN WALNUT RATE": "131.00"
+  },
+  {
+    "No.": "2",
+    "CODE": "W70002",
+    "Particulars": "2M ARROW",
+    "PKG OUTER": "10",
+    "MASTER": "600",
+    "BASIC WHITE RATE": "64.00",
+    "BASIC PREMIUM RATE": "73.00",
+    "MYSTIC COPPER/ MYSTIC CHROME/ MATTY\nBLACK RATE": "120.00",
+    "ITALIAN WALNUT RATE": "131.00"
+  },
+  {
+    "No.": "3",
+    "CODE": "W70003",
+    "Particulars": "3M ARROW",
+    "PKG OUTER": "10",
+    "MASTER": "600",
+    "BASIC WHITE RATE": "79.00",
+    "BASIC PREMIUM RATE": "88.00",
+    "MYSTIC COPPER/ MYSTIC CHROME/ MATTY\nBLACK RATE": "160.00",
+    "ITALIAN WALNUT RATE": "176.00"
+  },
+  {
+    "No.": "4",
+    "CODE": "W70004",
+    "Particulars": "4M ARROW",
+    "PKG OUTER": "10",
+    "MASTER": "450",
+    "BASIC WHITE RATE": "90.25",
+    "BASIC PREMIUM RATE": "100.00",
+    "MYSTIC COPPER/ MYSTIC CHROME/ MATTY\nBLACK RATE": "176.00",
+    "ITALIAN WALNUT RATE": "204.00"
+  },
+  {
+    "No.": "5",
+    "CODE": "W70005",
+    "Particulars": "6M ARROW",
+    "PKG OUTER": "10",
+    "MASTER": "300",
+    "BASIC WHITE RATE": "131.10",
+    "BASIC PREMIUM RATE": "150.00",
+    "MYSTIC COPPER/ MYSTIC CHROME/ MATTY\nBLACK RATE": "243.00",
+    "ITALIAN WALNUT RATE": "266.00"
+  },
+  {
+    "No.": "6",
+    "CODE": "W70006",
+    "Particulars": "8M (H) ARROW",
+    "PKG OUTER": "10",
+    "MASTER": "300",
+    "BASIC WHITE RATE": "166.25",
+    "BASIC PREMIUM RATE": "184.00",
+    "MYSTIC COPPER/ MYSTIC CHROME/ MATTY\nBLACK RATE": "329.00",
+    "ITALIAN WALNUT RATE": "365.00"
+  },
+  {
+    "No.": "7",
+    "CODE": "W70007",
+    "Particulars": "8M (V) ARROW",
+    "PKG OUTER": "10",
+    "MASTER": "270",
+    "BASIC WHITE RATE": "166.25",
+    "BASIC PREMIUM RATE": "184.00",
+    "MYSTIC COPPER/ MYSTIC CHROME/ MATTY\nBLACK RATE": "329.00",
+    "ITALIAN WALNUT RATE": "365.00"
+  },
+  {
+    "No.": "8",
+    "CODE": "W70008",
+    "Particulars": "12M ARROW",
+    "PKG OUTER": "10",
+    "MASTER": "240",
+    "BASIC WHITE RATE": "203.30",
+    "BASIC PREMIUM RATE": "250.00",
+    "MYSTIC COPPER/ MYSTIC CHROME/ MATTY\nBLACK RATE": "409.00",
+    "ITALIAN WALNUT RATE": "501.00"
+  },
+  {
+    "No.": "9",
+    "CODE": "W70010",
+    "Particulars": "16M ARROW",
+    "PKG OUTER": "10",
+    "MASTER": "200",
+    "BASIC WHITE RATE": "234.00",
+    "BASIC PREMIUM RATE": "283.00",
+    "MYSTIC COPPER/ MYSTIC CHROME/ MATTY\nBLACK RATE": "468.00",
+    "ITALIAN WALNUT RATE": "534.00"
+  },
+  {
+    "No.": "10",
+    "CODE": "W70009",
+    "Particulars": "18M ARROW",
+    "PKG OUTER": "10",
+    "MASTER": "160",
+    "BASIC WHITE RATE": "263.00",
+    "BASIC PREMIUM RATE": "287.00",
+    "MYSTIC COPPER/ MYSTIC CHROME/ MATTY\nBLACK RATE": "479.00",
+    "ITALIAN WALNUT RATE": "559.00"
+  }
+, 
+  {
+    "1": "2",
+    "10": "10",
+    "180": "180",
+    "W70051 ALPHA ACRYLIC -\nPOLAR WHITE/ THUNDER CHROME/ GALAXY BLUE/ DEEP MAROON/ SPACE BLACK/\nWARM TAN": "W70052 ALPHA ACRYLIC -\nPOLAR WHITE/ THUNDER CHROME/ GALAXY BLUE/ DEEP MAROON/ SPACE BLACK/\nWARM TAN",
+    "1M": "2M",
+    "238.00": "238.00"
+  },
+  {
+    "1": "3",
+    "10": "10",
+    "180": "180",
+    "W70051 ALPHA ACRYLIC -\nPOLAR WHITE/ THUNDER CHROME/ GALAXY BLUE/ DEEP MAROON/ SPACE BLACK/\nWARM TAN": "W70053 ALPHA ACRYLIC -\nPOLAR WHITE/ THUNDER CHROME/ GALAXY BLUE/ DEEP MAROON/ SPACE BLACK/\nWARM TAN",
+    "1M": "3M",
+    "238.00": "307.00"
+  },
+  {
+    "1": "4",
+    "10": "10",
+    "180": "180",
+    "W70051 ALPHA ACRYLIC -\nPOLAR WHITE/ THUNDER CHROME/ GALAXY BLUE/ DEEP MAROON/ SPACE BLACK/\nWARM TAN": "W70054 ALPHA ACRYLIC -\nPOLAR WHITE/ THUNDER CHROME/ GALAXY BLUE/ DEEP MAROON/ SPACE BLACK/\nWARM TAN",
+    "1M": "4M",
+    "238.00": "355.00"
+  },
+  {
+    "1": "5",
+    "10": "5",
+    "180": "90",
+    "W70051 ALPHA ACRYLIC -\nPOLAR WHITE/ THUNDER CHROME/ GALAXY BLUE/ DEEP MAROON/ SPACE BLACK/\nWARM TAN": "W70055 ALPHA ACRYLIC -\nPOLAR WHITE/ THUNDER CHROME/ GALAXY BLUE/ DEEP MAROON/ SPACE BLACK/\nWARM TAN",
+    "1M": "6M",
+    "238.00": "472.00"
+  },
+  {
+    "1": "6",
+    "10": "5",
+    "180": "90",
+    "W70051 ALPHA ACRYLIC -\nPOLAR WHITE/ THUNDER CHROME/ GALAXY BLUE/ DEEP MAROON/ SPACE BLACK/\nWARM TAN": "W70056 ALPHA ACRYLIC -\nPOLAR WHITE/ THUNDER CHROME/ GALAXY BLUE/ DEEP MAROON/ SPACE BLACK/\nWARM TAN",
+    "1M": "8M (H)",
+    "238.00": "567.00"
+  },
+  {
+    "1": "7",
+    "10": "5",
+    "180": "90",
+    "W70051 ALPHA ACRYLIC -\nPOLAR WHITE/ THUNDER CHROME/ GALAXY BLUE/ DEEP MAROON/ SPACE BLACK/\nWARM TAN": "W70057 ALPHA ACRYLIC -\nPOLAR WHITE/ THUNDER CHROME/ GALAXY BLUE/ DEEP MAROON/ SPACE BLACK/\nWARM TAN",
+    "1M": "8M (V)",
+    "238.00": "567.00"
+  },
+  {
+    "1": "8",
+    "10": "5",
+    "180": "60",
+    "W70051 ALPHA ACRYLIC -\nPOLAR WHITE/ THUNDER CHROME/ GALAXY BLUE/ DEEP MAROON/ SPACE BLACK/\nWARM TAN": "W70058 ALPHA ACRYLIC -\nPOLAR WHITE/ THUNDER CHROME/ GALAXY BLUE/ DEEP MAROON/ SPACE BLACK/\nWARM TAN",
+    "1M": "12M",
+    "238.00": "708.00"
+  },
+  {
+    "1": "9",
+    "10": "5",
+    "180": "40",
+    "W70051 ALPHA ACRYLIC -\nPOLAR WHITE/ THUNDER CHROME/ GALAXY BLUE/ DEEP MAROON/ SPACE BLACK/\nWARM TAN": "W70059 ALPHA ACRYLIC -\nPOLAR WHITE/ THUNDER CHROME/ GALAXY BLUE/ DEEP MAROON/ SPACE BLACK/\nWARM TAN",
+    "1M": "16M",
+    "238.00": "802.00"
+  },
+  {
+    "1": "10",
+    "10": "5",
+    "180": "40",
+    "W70051 ALPHA ACRYLIC -\nPOLAR WHITE/ THUNDER CHROME/ GALAXY BLUE/ DEEP MAROON/ SPACE BLACK/\nWARM TAN": "W70060 ALPHA ACRYLIC -\nPOLAR WHITE/ THUNDER CHROME/ GALAXY BLUE/ DEEP MAROON/ SPACE BLACK/\nWARM TAN",
+    "1M": "18M",
+    "238.00": "896.00"
+  }
+, 
+  {
+    "No.": "1",
+    "CODE": "W30051",
+    "Particulars": "W30051 ASTRA",
+    "PKG OUTER": "10",
+    "MASTER": "600",
+    "BASIC\nWHITE": "64.00"
+  },
+  {
+    "No.": "2",
+    "CODE": "W30052",
+    "Particulars": "W30052 ASTRA",
+    "PKG OUTER": "10",
+    "MASTER": "600",
+    "BASIC\nWHITE": "64.00"
+  },
+  {
+    "No.": "3",
+    "CODE": "W30053",
+    "Particulars": "W30053 ASTRA",
+    "PKG OUTER": "10",
+    "MASTER": "600",
+    "BASIC\nWHITE": "79.00"
+  },
+  {
+    "No.": "4",
+    "CODE": "W30054",
+    "Particulars": "W30054 ASTRA",
+    "PKG OUTER": "10",
+    "MASTER": "450",
+    "BASIC\nWHITE": "90.25"
+  },
+  {
+    "No.": "5",
+    "CODE": "W30055",
+    "Particulars": "W30055 ASTRA",
+    "PKG OUTER": "10",
+    "MASTER": "300",
+    "BASIC\nWHITE": "131.10"
+  },
+  {
+    "No.": "6",
+    "CODE": "W30056",
+    "Particulars": "W30056 ASTRA",
+    "PKG OUTER": "10",
+    "MASTER": "300",
+    "BASIC\nWHITE": "166.25"
+  },
+  {
+    "No.": "7",
+    "CODE": "W30057",
+    "Particulars": "W30057 ASTRA",
+    "PKG OUTER": "10",
+    "MASTER": "270",
+    "BASIC\nWHITE": "166.25"
+  },
+  {
+    "No.": "8",
+    "CODE": "W30058",
+    "Particulars": "W30058 ASTRA",
+    "PKG OUTER": "10",
+    "MASTER": "240",
+    "BASIC\nWHITE": "203.30"
+  },
+  {
+    "No.": "9",
+    "CODE": "W30060",
+    "Particulars": "W30060 ASTRA",
+    "PKG OUTER": "10",
+    "MASTER": "200",
+    "BASIC\nWHITE": "234.00"
+  },
+  {
+    "No.": "10",
+    "CODE": "W30059",
+    "Particulars": "W30059 ASTRA",
+    "PKG OUTER": "10",
+    "MASTER": "160",
+    "BASIC\nWHITE": "263.00"
+  }
+, 
+  {
+    "No.": "1",
+    "CODE": "W30071",
+    "Particulars": "W30071 AXEL",
+    "PKG OUTER": "10",
+    "MASTER": "600",
+    "BASIC\nGREEN  RATE": "64.00"
+  },
+  {
+    "No.": "2",
+    "CODE": "W30072",
+    "Particulars": "W30072 AXEL",
+    "PKG OUTER": "10",
+    "MASTER": "600",
+    "BASIC\nGREEN  RATE": "64.00"
+  },
+  {
+    "No.": "3",
+    "CODE": "W30073",
+    "Particulars": "W30073 AXEL",
+    "PKG OUTER": "10",
+    "MASTER": "600",
+    "BASIC\nGREEN  RATE": "79.00"
+  },
+  {
+    "No.": "4",
+    "CODE": "W30074",
+    "Particulars": "W30074 AXEL",
+    "PKG OUTER": "10",
+    "MASTER": "450",
+    "BASIC\nGREEN  RATE": "90.25"
+  },
+  {
+    "No.": "5",
+    "CODE": "W30075",
+    "Particulars": "W30075 AXEL",
+    "PKG OUTER": "10",
+    "MASTER": "300",
+    "BASIC\nGREEN  RATE": "131.10"
+  },
+  {
+    "No.": "6",
+    "CODE": "W30076",
+    "Particulars": "W30076 AXEL",
+    "PKG OUTER": "10",
+    "MASTER": "300",
+    "BASIC\nGREEN  RATE": "166.25"
+  },
+  {
+    "No.": "7",
+    "CODE": "W30077",
+    "Particulars": "W30077 AXEL",
+    "PKG OUTER": "10",
+    "MASTER": "270",
+    "BASIC\nGREEN  RATE": "166.25"
+  },
+  {
+    "No.": "8",
+    "CODE": "W30078",
+    "Particulars": "W30078 AXEL",
+    "PKG OUTER": "10",
+    "MASTER": "240",
+    "BASIC\nGREEN  RATE": "203.30"
+  },
+  {
+    "No.": "9",
+    "CODE": "W30079",
+    "Particulars": "W30079 AXEL",
+    "PKG OUTER": "10",
+    "MASTER": "200",
+    "BASIC\nGREEN  RATE": "234.00"
+  },
+  {
+    "No.": "10",
+    "CODE": "W30080",
+    "Particulars": "W30080 AXEL",
+    "PKG OUTER": "10",
+    "MASTER": "160",
+    "BASIC\nGREEN  RATE": "263.00"
+  }
+, 
+  {
+    "No.": "1",
+    "CODE": "W60001",
+    "Particulars": "1M A NINE",
+    "PKG OUTER": "10",
+    "MASTER": "480",
+    "BASIC IVORY/ WHITE/ GREEN RATE": "79.00",
+    "BASIC PREMIUM WHITE RATE": "91.00"
+  },
+  {
+    "No.": "2",
+    "CODE": "W60002",
+    "Particulars": "2M A NINE",
+    "PKG OUTER": "10",
+    "MASTER": "480",
+    "BASIC IVORY/ WHITE/ GREEN RATE": "79.00",
+    "BASIC PREMIUM WHITE RATE": "91.00"
+  },
+  {
+    "No.": "3",
+    "CODE": "W60003",
+    "Particulars": "3M A NINE",
+    "PKG OUTER": "10",
+    "MASTER": "360",
+    "BASIC IVORY/ WHITE/ GREEN RATE": "93.00",
+    "BASIC PREMIUM WHITE RATE": "116.00"
+  },
+  {
+    "No.": "4",
+    "CODE": "W60004",
+    "Particulars": "4M A NINE",
+    "PKG OUTER": "10",
+    "MASTER": "240",
+    "BASIC IVORY/ WHITE/ GREEN RATE": "122.00",
+    "BASIC PREMIUM WHITE RATE": "144.00"
+  },
+  {
+    "No.": "5",
+    "CODE": "W60005",
+    "Particulars": "6M A NINE",
+    "PKG OUTER": "10",
+    "MASTER": "240",
+    "BASIC IVORY/ WHITE/ GREEN RATE": "143.00",
+    "BASIC PREMIUM WHITE RATE": "174.00"
+  },
+  {
+    "No.": "6",
+    "CODE": "W60006",
+    "Particulars": "8M (W/P) A NINE",
+    "PKG OUTER": "10",
+    "MASTER": "240",
+    "BASIC IVORY/ WHITE/ GREEN RATE": "171.00",
+    "BASIC PREMIUM WHITE RATE": "213.00"
+  },
+  {
+    "No.": "7",
+    "CODE": "W60007",
+    "Particulars": "8M (H) A NINE",
+    "PKG OUTER": "10",
+    "MASTER": "240",
+    "BASIC IVORY/ WHITE/ GREEN RATE": "171.00",
+    "BASIC PREMIUM WHITE RATE": "213.00"
+  },
+  {
+    "No.": "8",
+    "CODE": "W60016",
+    "Particulars": "8M (V) A NINE",
+    "PKG OUTER": "10",
+    "MASTER": "240",
+    "BASIC IVORY/ WHITE/ GREEN RATE": "171.00",
+    "BASIC PREMIUM WHITE RATE": "213.00"
+  },
+  {
+    "No.": "9",
+    "CODE": "W60008",
+    "Particulars": "10M A NINE",
+    "PKG OUTER": "10",
+    "MASTER": "200",
+    "BASIC IVORY/ WHITE/ GREEN RATE": "193.00",
+    "BASIC PREMIUM WHITE RATE": "249.00"
+  },
+  {
+    "No.": "10",
+    "CODE": "W60009",
+    "Particulars": "12M (V) A NINE",
+    "PKG OUTER": "10",
+    "MASTER": "180",
+    "BASIC IVORY/ WHITE/ GREEN RATE": "208.00",
+    "BASIC PREMIUM WHITE RATE": "278.00"
+  },
+  {
+    "No.": "11",
+    "CODE": "W60017",
+    "Particulars": "12M (H) A NINE",
+    "PKG OUTER": "10",
+    "MASTER": "100",
+    "BASIC IVORY/ WHITE/ GREEN RATE": "208.00",
+    "BASIC PREMIUM WHITE RATE": "278.00"
+  },
+  {
+    "No.": "12",
+    "CODE": "W60012",
+    "Particulars": "12M (H&V) A NINE",
+    "PKG OUTER": "10",
+    "MASTER": "180",
+    "BASIC IVORY/ WHITE/ GREEN RATE": "301.00",
+    "BASIC PREMIUM WHITE RATE": "379.00"
+  },
+  {
+    "No.": "13",
+    "CODE": "W60010",
+    "Particulars": "16M A NINE",
+    "PKG OUTER": "10",
+    "MASTER": "180",
+    "BASIC IVORY/ WHITE/ GREEN RATE": "238.00",
+    "BASIC PREMIUM WHITE RATE": "308.00"
+  },
+  {
+    "No.": "14",
+    "CODE": "W60011",
+    "Particulars": "18M (H) A NINE",
+    "PKG OUTER": "10",
+    "MASTER": "100",
+    "BASIC IVORY/ WHITE/ GREEN RATE": "274.00",
+    "BASIC PREMIUM WHITE RATE": "364.00"
+  },
+  {
+    "No.": "15",
+    "CODE": "W60013",
+    "Particulars": "18M (V) A NINE",
+    "PKG OUTER": "10",
+    "MASTER": "100",
+    "BASIC IVORY/ WHITE/ GREEN RATE": "274.00",
+    "BASIC PREMIUM WHITE RATE": "364.00"
+  },
+  {
+    "No.": "16",
+    "CODE": "W60014",
+    "Particulars": "20M A NINE",
+    "PKG OUTER": "10",
+    "MASTER": "120",
+    "BASIC IVORY/ WHITE/ GREEN RATE": "326.00",
+    "BASIC PREMIUM WHITE RATE": "429.00"
+  },
+  {
+    "No.": "17",
+    "CODE": "W60015",
+    "Particulars": "24M A NINE",
+    "PKG OUTER": "10",
+    "MASTER": "100",
+    "BASIC IVORY/ WHITE/ GREEN RATE": "380.00",
+    "BASIC PREMIUM WHITE RATE": "477.00"
+  }
+]
