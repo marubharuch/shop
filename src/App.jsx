@@ -1,45 +1,111 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import localforage from "localforage";
 import VoiceSearch from "./VoiceSearch";
 import ItemList from "./ItemList";
-import accessories from "./woodem_accessories.json";
-import plates from "./plat4x.json";
+import CartView from "./CartView";
+import { ShoppingCart, RotateCcw } from "lucide-react";
 
 export default function App() {
-  const allItems = [
-    ...accessories.map((item) => ({
-      ...item,
-      category: "accessory",
-    })),
-    ...plates.map((item) => ({
-      ...item,
-      category: "plate",
-    })),
-  ];
-
-  const [filteredItems, setFilteredItems] = useState(allItems);
+  const [allItems, setAllItems] = useState([]);
+  const [filteredItems, setFilteredItems] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("all");
-
-  const [activeRate, setActiveRate] = useState(null); // { itemIndex, key }
+  const [globalDiscount, setGlobalDiscount] = useState(0);
+  const [activeRate, setActiveRate] = useState(null);
   const [enteredValue, setEnteredValue] = useState("");
-
+  const [activeDiscount, setActiveDiscount] = useState(null);
+  const [discountValue, setDiscountValue] = useState("");
   const [showCart, setShowCart] = useState(false);
+
+  window.setShowCart = setShowCart;
+
+  useEffect(() => {
+    const loadData = async () => {
+      const stored = await localforage.getItem("cached_items");
+      const lastHash = await localforage.getItem("data_hash");
+
+      try {
+        const [accRes, plateRes] = await Promise.all([
+          fetch(import.meta.env.BASE_URL + "woodem_accessories.json"),
+          fetch(import.meta.env.BASE_URL + "plat4x.json"),
+        ]);
+
+        const accessories = await accRes.json();
+        const plates = await plateRes.json();
+
+        const all = [
+          ...accessories.map((item) => ({ ...item, category: "accessory" })),
+          ...plates.map((item) => ({ ...item, category: "plate" })),
+        ];
+
+        const newHash = JSON.stringify(all).length;
+
+        if (!stored || newHash !== lastHash) {
+          await localforage.setItem("cached_items", all);
+          await localforage.setItem("data_hash", newHash);
+        }
+
+        setAllItems(all);
+        setFilteredItems(applyExistingData(all));
+      } catch (err) {
+        console.error("Failed to fetch JSON files", err);
+        if (stored) {
+          setAllItems(stored);
+          setFilteredItems(applyExistingData(stored));
+        }
+      }
+    };
+
+    loadData();
+  }, []);
+
+  const applyExistingData = (items) =>
+    items.map((item) => {
+      const existing = filteredItems.find((i) => i.Code === item.Code);
+      return {
+        ...item,
+        quantity: existing?.quantity || {},
+        discounts: existing?.discounts || {},
+      };
+    });
 
   const handleSearch = (query, category = categoryFilter) => {
     setSearchQuery(query);
     const words = query.toLowerCase().split(/\s+/).filter(Boolean);
 
-    const matches = allItems.filter((item) => {
-      const searchable = `${item.Code} ${item.Particulars}`.toLowerCase();
-      const categoryMatch = category === "all" || item.category === category;
-      const keywordMatch = words.every((word) => searchable.includes(word));
-      return categoryMatch && keywordMatch;
-    });
+    const matches = allItems
+      .filter((item) => {
+        const searchable = `${item.Code} ${item.Particulars}`.toLowerCase();
+        const categoryMatch = category === "all" || item.category === category;
+        const keywordMatch = words.every((word) => searchable.includes(word));
+        return categoryMatch && keywordMatch;
+      })
+      .map((item) => {
+        const existing = filteredItems.find((i) => i.Code === item.Code);
+        return {
+          ...item,
+          quantity: existing?.quantity || {},
+          discounts: existing?.discounts || {},
+        };
+      });
 
     setFilteredItems(matches);
   };
 
-  const handleInputChange = (e) => handleSearch(e.target.value);
+  const handleReset = () => {
+    setSearchQuery("");
+    setCategoryFilter("all");
+    const resetItems = allItems.map((item) => {
+      const existing = filteredItems.find((i) => i.Code === item.Code);
+      return {
+        ...item,
+        quantity: existing?.quantity || {},
+        discounts: existing?.discounts || {},
+      };
+    });
+    setFilteredItems(resetItems);
+  };
+
   const handleCategoryChange = (e) => {
     const selectedCategory = e.target.value;
     setCategoryFilter(selectedCategory);
@@ -51,11 +117,18 @@ export default function App() {
     setEnteredValue("");
   };
 
-  const handleNumPad = (val) => {
+  const handleDiscountClick = (itemIndex, key) => {
+    setActiveDiscount({ itemIndex, key });
+    setDiscountValue("");
+  };
+
+  const handleNumPad = (val, type = "qty") => {
     if (val === "C") {
-      setEnteredValue("");
+      type === "qty" ? setEnteredValue("") : setDiscountValue("");
     } else {
-      setEnteredValue((prev) => prev + val);
+      type === "qty"
+        ? setEnteredValue((prev) => prev + val)
+        : setDiscountValue((prev) => prev + val);
     }
   };
 
@@ -64,107 +137,148 @@ export default function App() {
     const item = newItems[activeRate.itemIndex];
     if (!item.quantity) item.quantity = {};
     item.quantity[activeRate.key] = enteredValue;
-
     setFilteredItems(newItems);
     setActiveRate(null);
   };
 
-  const cartItems = filteredItems.filter(
-    (item) => item.quantity && Object.values(item.quantity).some((q) => Number(q) > 0)
-  );
+  const confirmDiscount = () => {
+    const newItems = [...filteredItems];
+    const item = newItems[activeDiscount.itemIndex];
+    if (!item.discounts) item.discounts = {};
+    item.discounts[activeDiscount.key] = Number(discountValue);
+    setFilteredItems(newItems);
+    setActiveDiscount(null);
+  };
 
   return (
-    <div className="p-4 max-w-2xl mx-auto relative">
-      <h1 className="text-xl font-bold mb-4 text-center">🎤 Voice Item Search</h1>
-
-      <div className="flex justify-between mb-4">
-        <button
-          onClick={() => setShowCart(false)}
-          className="bg-gray-200 px-4 py-2 rounded hover:bg-gray-300"
-        >
-          🏠 Home
-        </button>
-        <button
-          onClick={() => setShowCart(true)}
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-        >
-          🛒 Cart ({cartItems.length})
-        </button>
-      </div>
-
-      {!showCart && (
-        <>
+    <div className="p-4 max-w-7xl mx-auto relative pb-32">
+      {/* Header */}
+      <div className="sticky top-0 z-50 bg-white pb-2">
+        <div className="flex items-center gap-2 mb-2">
+          <button
+            onClick={() => setShowCart(true)}
+            className="p-2 rounded-full bg-green-600 text-white hover:bg-green-700 md:hidden"
+          >
+            <ShoppingCart size={24} />
+          </button>
           <input
             type="text"
             value={searchQuery}
-            onChange={handleInputChange}
+            onChange={(e) => handleSearch(e.target.value)}
             placeholder="Type item name or code..."
-            className="w-full p-2 border border-gray-300 rounded mb-4"
+            className="flex-1 p-2 border border-gray-300 rounded"
           />
+          <button
+            onClick={handleReset}
+            className="p-2 rounded-full bg-gray-300 text-gray-700 hover:bg-gray-400"
+          >
+            <RotateCcw size={20} />
+          </button>
+        </div>
+      </div>
 
+      {/* Main layout */}
+      <div className="md:flex md:gap-4">
+        <div className="md:w-3/5 w-full">
+          <ItemList
+            items={filteredItems}
+            onRateClick={handleRateClick}
+            activeRate={activeRate}
+            globalDiscount={globalDiscount}
+            onDiscountClick={handleDiscountClick}
+          />
+        </div>
+        <div className="md:w-2/5 hidden md:block">
+          <CartView items={filteredItems} onClose={() => {}} />
+        </div>
+      </div>
+
+      {/* Bottom controls */}
+      <div className="fixed bottom-0 left-0 right-0 w-full bg-white border-t px-2 py-2 z-50">
+        <div className="flex gap-2 w-full">
+          <input
+            type="number"
+            placeholder="%"
+            className="w-[80px] p-2 border border-gray-300 rounded"
+            value={globalDiscount}
+            onChange={(e) => setGlobalDiscount(Number(e.target.value))}
+          />
           <select
+            className="flex-1 p-2 border border-gray-300 rounded"
             value={categoryFilter}
             onChange={handleCategoryChange}
-            className="w-full p-2 border border-gray-300 rounded mb-4"
           >
             <option value="all">All Categories</option>
             <option value="accessory">Accessory</option>
             <option value="plate">Plate</option>
           </select>
+          <div className="shrink-0">
+            <VoiceSearch onSearch={(q) => handleSearch(q)} />
+          </div>
+        </div>
+      </div>
 
-          <VoiceSearch onSearch={(q) => handleSearch(q)} />
-          <ItemList
-            items={filteredItems}
-            onRateClick={handleRateClick}
-            activeRate={activeRate}
-          />
-        </>
-      )}
-
+      {/* Cart on mobile */}
       {showCart && (
-        <div>
-          <h2 className="text-xl font-semibold mb-2">🛒 Cart</h2>
-          {cartItems.map((item, index) => (
-            <div key={index} className="border rounded p-3 mb-2 bg-white shadow-sm">
-              <div className="font-medium">{item.Code} - {item.Particulars}</div>
-              {Object.entries(item.quantity || {}).map(([key, qty]) => (
-                <div key={key} className="text-sm text-green-700">
-                  {key}: {qty} pcs × ₹{item[key]} = ₹{(qty * parseFloat(item[key])).toFixed(2)}
-                </div>
-              ))}
-            </div>
-          ))}
+        <div className="md:hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+          <div className="bg-white w-full max-w-md rounded-lg shadow-lg p-4">
+            <CartView items={filteredItems} onClose={() => setShowCart(false)} />
+          </div>
         </div>
       )}
 
-      {/* Numpad Popup */}
+      {/* Quantity Numpad */}
       {activeRate !== null && (
         <div className="fixed inset-0 bg-black bg-opacity-30 z-50 flex items-center justify-center px-4">
           <div className="bg-white rounded-lg shadow-lg w-full max-w-sm p-4 space-y-4">
             <div className="text-center text-3xl font-semibold border p-3 rounded">
               Qty: {enteredValue || "0"}
             </div>
-
             <div className="grid grid-cols-3 gap-2">
               {["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".", "C"].map((val) => (
                 <button
                   key={val}
-                  onClick={() => handleNumPad(val)}
+                  onClick={() => handleNumPad(val, "qty")}
                   className="p-4 bg-gray-100 rounded hover:bg-gray-200 text-xl font-medium"
                 >
                   {val}
                 </button>
               ))}
             </div>
+            <button
+              onClick={confirmRate}
+              className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 text-lg"
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      )}
 
-            <div className="pt-2">
-              <button
-                onClick={confirmRate}
-                className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 text-lg"
-              >
-                OK
-              </button>
+      {/* Discount Numpad */}
+      {activeDiscount !== null && (
+        <div className="fixed inset-0 bg-black bg-opacity-30 z-50 flex items-center justify-center px-4">
+          <div className="bg-yellow-100 rounded-lg shadow-lg w-full max-w-sm p-4 space-y-4">
+            <div className="text-center text-2xl font-semibold border p-3 rounded">
+              Discount: {discountValue || "0"}%
             </div>
+            <div className="grid grid-cols-3 gap-2">
+              {["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".", "C"].map((val) => (
+                <button
+                  key={val}
+                  onClick={() => handleNumPad(val, "discount")}
+                  className="p-4 bg-yellow-200 rounded hover:bg-yellow-300 text-xl font-medium"
+                >
+                  {val}
+                </button>
+              ))}
+            </div>
+            <button
+              onClick={confirmDiscount}
+              className="w-full bg-yellow-600 text-white py-2 rounded hover:bg-yellow-700 text-lg"
+            >
+              OK
+            </button>
           </div>
         </div>
       )}
