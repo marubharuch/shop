@@ -45,8 +45,8 @@ export default function CartView({ items, onClose, isDesktop }) {
                   const finalRate = rate * (1 - discount / 100);
                   return (
                     <p key={key} className="text-sm text-gray-700">
-                      {key.replace("RATE", "")}: {qty} × ₹
-                      {finalRate.toFixed(2)} = ₹
+                      {key.replace("RATE", "")}:| ₹ {rate} - 
+                      {discount} % |  {finalRate.toFixed(2)} x{qty} =₹ 
                       {(qty * finalRate).toFixed(2)}
                     </p>
                   );

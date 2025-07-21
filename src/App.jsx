@@ -1,3 +1,4 @@
+// App.jsx
 import React, { useState, useEffect } from "react";
 import localforage from "localforage";
 import VoiceSearch from "./VoiceSearch";
@@ -19,25 +20,24 @@ export default function App() {
 
   window.setShowCart = setShowCart;
 
+  // Load data & persisted item states
   useEffect(() => {
     const loadData = async () => {
       const stored = await localforage.getItem("cached_items");
       const lastHash = await localforage.getItem("data_hash");
+      const savedStates = (await localforage.getItem("item_states")) || [];
 
       try {
         const [accRes, plateRes] = await Promise.all([
           fetch(import.meta.env.BASE_URL + "woodem_accessories.json"),
           fetch(import.meta.env.BASE_URL + "plat4x.json"),
         ]);
-
         const accessories = await accRes.json();
         const plates = await plateRes.json();
-
         const all = [
           ...accessories.map((item) => ({ ...item, category: "accessory" })),
           ...plates.map((item) => ({ ...item, category: "plate" })),
         ];
-
         const newHash = JSON.stringify(all).length;
 
         if (!stored || newHash !== lastHash) {
@@ -46,12 +46,12 @@ export default function App() {
         }
 
         setAllItems(all);
-        setFilteredItems(applyExistingData(all));
+        setFilteredItems(applyExistingData(all, savedStates));
       } catch (err) {
-        console.error("Failed to fetch JSON files", err);
+        console.error("Fetch JSON failed", err);
         if (stored) {
           setAllItems(stored);
-          setFilteredItems(applyExistingData(stored));
+          setFilteredItems(applyExistingData(stored, savedStates));
         }
       }
     };
@@ -59,9 +59,22 @@ export default function App() {
     loadData();
   }, []);
 
-  const applyExistingData = (items) =>
+  // Persist quantities/discounts on change
+  useEffect(() => {
+    const saveState = async () => {
+      const simple = filteredItems.map((item) => ({
+        Code: item.Code,
+        quantity: item.quantity || {},
+        discounts: item.discounts || {},
+      }));
+      await localforage.setItem("item_states", simple);
+    };
+    saveState();
+  }, [filteredItems]);
+
+  const applyExistingData = (items, savedStates = []) =>
     items.map((item) => {
-      const existing = filteredItems.find((i) => i.Code === item.Code);
+      const existing = savedStates.find((i) => i.Code === item.Code);
       return {
         ...item,
         quantity: existing?.quantity || {},
@@ -69,16 +82,14 @@ export default function App() {
       };
     });
 
-  const handleSearch = (query, category = categoryFilter) => {
-    setSearchQuery(query);
-    const words = query.toLowerCase().split(/\s+/).filter(Boolean);
-
+  const handleSearch = (q, category = categoryFilter) => {
+    setSearchQuery(q);
+    const words = q.toLowerCase().split(/\s+/).filter(Boolean);
     const matches = allItems
       .filter((item) => {
         const searchable = `${item.Code} ${item.Particulars}`.toLowerCase();
-        const categoryMatch = category === "all" || item.category === category;
-        const keywordMatch = words.every((word) => searchable.includes(word));
-        return categoryMatch && keywordMatch;
+        const catOk = category === "all" || item.category === category;
+        return catOk && words.every((w) => searchable.includes(w));
       })
       .map((item) => {
         const existing = filteredItems.find((i) => i.Code === item.Code);
@@ -88,28 +99,19 @@ export default function App() {
           discounts: existing?.discounts || {},
         };
       });
-
     setFilteredItems(matches);
   };
 
   const handleReset = () => {
     setSearchQuery("");
     setCategoryFilter("all");
-    const resetItems = allItems.map((item) => {
-      const existing = filteredItems.find((i) => i.Code === item.Code);
-      return {
-        ...item,
-        quantity: existing?.quantity || {},
-        discounts: existing?.discounts || {},
-      };
-    });
-    setFilteredItems(resetItems);
+    setFilteredItems(applyExistingData(allItems));
   };
 
   const handleCategoryChange = (e) => {
-    const selectedCategory = e.target.value;
-    setCategoryFilter(selectedCategory);
-    handleSearch(searchQuery, selectedCategory);
+    const cat = e.target.value;
+    setCategoryFilter(cat);
+    handleSearch(searchQuery, cat);
   };
 
   const handleRateClick = (itemIndex, key) => {
@@ -133,26 +135,26 @@ export default function App() {
   };
 
   const confirmRate = () => {
-    const newItems = [...filteredItems];
-    const item = newItems[activeRate.itemIndex];
-    if (!item.quantity) item.quantity = {};
-    item.quantity[activeRate.key] = enteredValue;
-    setFilteredItems(newItems);
+    const arr = [...filteredItems];
+    const it = arr[activeRate.itemIndex];
+    it.quantity = it.quantity || {};
+    it.quantity[activeRate.key] = enteredValue;
+    setFilteredItems(arr);
     setActiveRate(null);
   };
 
   const confirmDiscount = () => {
-    const newItems = [...filteredItems];
-    const item = newItems[activeDiscount.itemIndex];
-    if (!item.discounts) item.discounts = {};
-    item.discounts[activeDiscount.key] = Number(discountValue);
-    setFilteredItems(newItems);
+    const arr = [...filteredItems];
+    const it = arr[activeDiscount.itemIndex];
+    it.discounts = it.discounts || {};
+    it.discounts[activeDiscount.key] = Number(discountValue);
+    setFilteredItems(arr);
     setActiveDiscount(null);
   };
 
   return (
     <div className="p-4 max-w-7xl mx-auto relative pb-32">
-      {/* Header */}
+      {/* Top Bar */}
       <div className="sticky top-0 z-50 bg-white pb-2">
         <div className="flex items-center gap-2 mb-2">
           <button
@@ -177,7 +179,7 @@ export default function App() {
         </div>
       </div>
 
-      {/* Main layout */}
+      {/* Main Content */}
       <div className="md:flex md:gap-4">
         <div className="md:w-3/5 w-full">
           <ItemList
@@ -193,9 +195,9 @@ export default function App() {
         </div>
       </div>
 
-      {/* Bottom controls */}
+      {/* Bottom Controls */}
       <div className="fixed bottom-0 left-0 right-0 w-full bg-white border-t px-2 py-2 z-50">
-        <div className="flex gap-2 w-full">
+        <div className="flex gap-2">
           <input
             type="number"
             placeholder="%"
@@ -218,7 +220,7 @@ export default function App() {
         </div>
       </div>
 
-      {/* Cart on mobile */}
+      {/* Cart Modal for Mobile */}
       {showCart && (
         <div className="md:hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
           <div className="bg-white w-full max-w-md rounded-lg shadow-lg p-4">
@@ -227,7 +229,7 @@ export default function App() {
         </div>
       )}
 
-      {/* Quantity Numpad */}
+      {/* Qty Modal */}
       {activeRate !== null && (
         <div className="fixed inset-0 bg-black bg-opacity-30 z-50 flex items-center justify-center px-4">
           <div className="bg-white rounded-lg shadow-lg w-full max-w-sm p-4 space-y-4">
@@ -235,7 +237,7 @@ export default function App() {
               Qty: {enteredValue || "0"}
             </div>
             <div className="grid grid-cols-3 gap-2">
-              {["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".", "C"].map((val) => (
+              {["1","2","3","4","5","6","7","8","9","0",".","C"].map((val) => (
                 <button
                   key={val}
                   onClick={() => handleNumPad(val, "qty")}
@@ -255,7 +257,7 @@ export default function App() {
         </div>
       )}
 
-      {/* Discount Numpad */}
+      {/* Discount Modal */}
       {activeDiscount !== null && (
         <div className="fixed inset-0 bg-black bg-opacity-30 z-50 flex items-center justify-center px-4">
           <div className="bg-yellow-100 rounded-lg shadow-lg w-full max-w-sm p-4 space-y-4">
@@ -263,7 +265,7 @@ export default function App() {
               Discount: {discountValue || "0"}%
             </div>
             <div className="grid grid-cols-3 gap-2">
-              {["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".", "C"].map((val) => (
+              {["1","2","3","4","5","6","7","8","9","0",".","C"].map((val) => (
                 <button
                   key={val}
                   onClick={() => handleNumPad(val, "discount")}

@@ -1,40 +1,44 @@
-import React, { useState } from "react";
+import { useEffect } from "react";
 
-const VoiceSearch = ({ onSearch }) => {
-  const [isListening, setIsListening] = useState(false);
-  const recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-  const recognizer = new recognition();
+export default function VoiceSearch({ onSearch }) {
+  useEffect(() => {
+    const SpeechRecognition =
+      window.SpeechRecognition || window.webkitSpeechRecognition;
 
-  recognizer.continuous = false;
-  recognizer.lang = "en-IN";
+    if (!SpeechRecognition) {
+      console.warn("Speech recognition not supported.");
+      return;
+    }
 
-  const startListening = () => {
-    setIsListening(true);
-    recognizer.start();
+    const recognition = new SpeechRecognition();
+    recognition.lang = "gu-IN"; // or 'en-IN' / 'hi-IN'
+    recognition.continuous = false;
+    recognition.interimResults = false;
 
-    recognizer.onresult = (event) => {
+    const handleResult = (event) => {
       const transcript = event.results[0][0].transcript;
       onSearch(transcript);
-      setIsListening(false);
     };
 
-    recognizer.onerror = () => {
-      setIsListening(false);
+    const mic = document.getElementById("micButton");
+    if (mic) {
+      mic.addEventListener("click", () => {
+        recognition.start();
+      });
+    }
+
+    recognition.addEventListener("result", handleResult);
+    recognition.addEventListener("error", (e) => console.error(e));
+    recognition.addEventListener("end", () => console.log("Speech ended"));
+
+    return () => {
+      recognition.abort();
     };
-  };
+  }, [onSearch]);
 
   return (
-    <div className="text-center">
-      <button
-        className={`px-4 py-2 rounded-full ${
-          isListening ? "bg-red-500" : "bg-blue-600"
-        } text-white`}
-        onClick={startListening}
-      >
-        {isListening ? "Listening..." : "🎙 Tap to Speak"}
-      </button>
-    </div>
+    <button id="micButton" className="p-2 rounded bg-green-500 text-white">
+      🎤 Voice
+    </button>
   );
-};
-
-export default VoiceSearch;
+}
